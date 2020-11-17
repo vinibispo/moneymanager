@@ -1,10 +1,10 @@
 class AuthenticationController < ApplicationController
   def create
-    user = User.find(email: params[:email])
+    user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       render json: payload(user)
     else
-      render json: {errors: ['Invalid Username/Password']}, status: :unauthorized
+      render json: {errors: ['Invalid username/password']}, status: :unauthorized
     end
   end
 
