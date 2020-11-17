@@ -9,6 +9,8 @@ RSpec.describe "Users", type: :request do
       expect(response).to have_http_status(200)
       expect(json.length).to be(10)
     end
+  end
+  describe "GET /users/:id" do
     it "should return just a user" do
       user = create(:user)
       get "#{user_path(user.id)}.json"
