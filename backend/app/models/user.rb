@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  default_scope { order(:created_at) }
   has_secure_password
 
   validates_presence_of :email
