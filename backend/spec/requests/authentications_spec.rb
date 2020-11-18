@@ -29,7 +29,7 @@ RSpec.describe "Authentications", type: :request do
       user = create(:user)
       post "#{auth_user_path}.json", params: {
         :email => email,
-        :password => ""
+        :password => user[:password]
       }
       jsonResponse = JSON.parse(response.body)
       expect(response).to have_http_status 401
