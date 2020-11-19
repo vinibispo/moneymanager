@@ -22,7 +22,6 @@ RSpec.describe UsersController, type: :controller do
     it "returns a success response" do
       user = User.create! valid_attributes
       get :index, params: {}
-      puts response.body
       expect(response).to be_successful
     end
   end
