@@ -4,8 +4,10 @@
  *
  * @format
  */
-
+const {resolve} = require('path');
 module.exports = {
+  projectRoot: resolve(__dirname, '.'),
+  watchFolders: [resolve(__dirname, '../../node_modules')],
   transformer: {
     getTransformOptions: async () => ({
       transform: {
