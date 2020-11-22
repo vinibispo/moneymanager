@@ -1,0 +1,124 @@
+d81cd7d68e2290c0581d7225aff48933
+
+
+
+
+
+
+
+
+
+
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _Colors = _interopRequireDefault(require("./Colors"));
+
+var _openURLInBrowser = _interopRequireDefault(require("react-native/Libraries/Core/Devtools/openURLInBrowser"));
+var _reactNative = require("react-native");
+var _react = _interopRequireDefault(require("react"));var _this = this,_jsxFileName = "/home/vinibispodev/Documents/Business/moneymanager/node_modules/react-native/Libraries/NewAppScreen/components/LearnMoreLinks.js";function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var links = [
+{
+  id: 1,
+  title: 'The Basics',
+  link: 'https://reactnative.dev/docs/tutorial',
+  description: 'Explains a Hello World for React Native.' },
+
+{
+  id: 2,
+  title: 'Style',
+  link: 'https://reactnative.dev/docs/style',
+  description:
+  'Covers how to use the prop named style which controls the visuals.' },
+
+{
+  id: 3,
+  title: 'Layout',
+  link: 'https://reactnative.dev/docs/flexbox',
+  description: 'React Native uses flexbox for layout, learn how it works.' },
+
+{
+  id: 4,
+  title: 'Components',
+  link: 'https://reactnative.dev/docs/components-and-apis',
+  description: 'The full list of components and APIs inside React Native.' },
+
+{
+  id: 5,
+  title: 'Navigation',
+  link: 'https://reactnative.dev/docs/navigation',
+  description:
+  'How to handle moving between screens inside your application.' },
+
+{
+  id: 6,
+  title: 'Networking',
+  link: 'https://reactnative.dev/docs/network',
+  description: 'How to use the Fetch API in React Native.' },
+
+{
+  id: 7,
+  title: 'Help',
+  link: 'https://reactnative.dev/help',
+  description:
+  'Need more help? There are many other React Native developers who may have the answer.' },
+
+{
+  id: 8,
+  title: 'Follow us on Twitter',
+  link: 'https://twitter.com/reactnative',
+  description:
+  'Stay in touch with the community, join in on Q&As and more by following React Native on Twitter.' }];
+
+
+
+var LinkList = function LinkList() {return (
+    _react.default.createElement(_reactNative.View, { style: styles.container, __self: _this, __source: { fileName: _jsxFileName, lineNumber: 74, columnNumber: 3 } },
+    links.map(function (_ref) {var id = _ref.id,title = _ref.title,link = _ref.link,description = _ref.description;
+      return (
+        _react.default.createElement(_react.default.Fragment, { key: id, __self: _this, __source: { fileName: _jsxFileName, lineNumber: 77, columnNumber: 9 } },
+        _react.default.createElement(_reactNative.View, { style: styles.separator, __self: _this, __source: { fileName: _jsxFileName, lineNumber: 78, columnNumber: 11 } }),
+        _react.default.createElement(_reactNative.TouchableOpacity, {
+          accessibilityRole: 'button',
+          onPress: function onPress() {return (0, _openURLInBrowser.default)(link);},
+          style: styles.linkContainer, __self: _this, __source: { fileName: _jsxFileName, lineNumber: 79, columnNumber: 11 } },
+        _react.default.createElement(_reactNative.Text, { style: styles.link, __self: _this, __source: { fileName: _jsxFileName, lineNumber: 83, columnNumber: 13 } }, title),
+        _react.default.createElement(_reactNative.Text, { style: styles.description, __self: _this, __source: { fileName: _jsxFileName, lineNumber: 84, columnNumber: 13 } }, description))));
+
+
+
+    })));};
+
+
+
+var styles = _reactNative.StyleSheet.create({
+  container: {
+    marginTop: 32,
+    paddingHorizontal: 24 },
+
+  linkContainer: {
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 8 },
+
+  link: {
+    flex: 2,
+    fontSize: 18,
+    fontWeight: '400',
+    color: _Colors.default.primary },
+
+  description: {
+    flex: 3,
+    paddingVertical: 16,
+    fontWeight: '400',
+    fontSize: 18,
+    color: _Colors.default.dark },
+
+  separator: {
+    backgroundColor: _Colors.default.light,
+    height: 1 } });var _default =
+
+
+
+LinkList;exports.default = _default;

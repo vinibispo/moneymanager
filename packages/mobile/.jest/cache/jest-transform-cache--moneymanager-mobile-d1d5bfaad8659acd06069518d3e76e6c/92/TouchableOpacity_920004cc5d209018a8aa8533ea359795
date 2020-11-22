@@ -1,0 +1,303 @@
+8f404b2390dfac58017e4c143a31681d
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+var _Pressability = _interopRequireDefault(require("../../Pressability/Pressability"));
+
+
+var _PressabilityDebug = require("../../Pressability/PressabilityDebug");
+var _TVTouchable = _interopRequireDefault(require("./TVTouchable"));
+
+var _Animated = _interopRequireDefault(require("react-native/Libraries/Animated/src/Animated"));
+var _Easing = _interopRequireDefault(require("react-native/Libraries/Animated/src/Easing"));
+
+var _flattenStyle2 = _interopRequireDefault(require("react-native/Libraries/StyleSheet/flattenStyle"));
+var _Platform = _interopRequireDefault(require("../../Utilities/Platform"));
+var React = _interopRequireWildcard(require("react"));var _jsxFileName = "/home/vinibispodev/Documents/Business/moneymanager/node_modules/react-native/Libraries/Components/Touchable/TouchableOpacity.js",_this4 = this;function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _extends() {_extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};return _extends.apply(this, arguments);}function _objectWithoutProperties(source, excluded) {if (source == null) return {};var target = _objectWithoutPropertiesLoose(source, excluded);var key, i;if (Object.getOwnPropertySymbols) {var sourceSymbolKeys = Object.getOwnPropertySymbols(source);for (i = 0; i < sourceSymbolKeys.length; i++) {key = sourceSymbolKeys[i];if (excluded.indexOf(key) >= 0) continue;if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;target[key] = source[key];}}return target;}function _objectWithoutPropertiesLoose(source, excluded) {if (source == null) return {};var target = {};var sourceKeys = Object.keys(source);var key, i;for (i = 0; i < sourceKeys.length; i++) {key = sourceKeys[i];if (excluded.indexOf(key) >= 0) continue;target[key] = source[key];}return target;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = _getPrototypeOf(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}var
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TouchableOpacity = function (_React$Component) {_inherits(TouchableOpacity, _React$Component);var _super = _createSuper(TouchableOpacity);function TouchableOpacity() {var _this;_classCallCheck(this, TouchableOpacity);for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}_this = _super.call.apply(_super, [this].concat(args));_this.
+
+
+    state = {
+      anim: new _Animated.default.Value(_this._getChildStyleOpacityWithDefault()),
+      pressability: new _Pressability.default(_this._createPressabilityConfig()) };return _this;}_createClass(TouchableOpacity, [{ key: "_createPressabilityConfig", value: function _createPressabilityConfig()
+
+
+    {var _this2 = this;
+      return {
+        cancelable: !this.props.rejectResponderTermination,
+        disabled: this.props.disabled,
+        hitSlop: this.props.hitSlop,
+        delayLongPress: this.props.delayLongPress,
+        delayPressIn: this.props.delayPressIn,
+        delayPressOut: this.props.delayPressOut,
+        minPressDuration: 0,
+        pressRectOffset: this.props.pressRetentionOffset,
+        onBlur: function onBlur(event) {
+          if (_Platform.default.isTV) {
+            _this2._opacityInactive(250);
+          }
+          if (_this2.props.onBlur != null) {
+            _this2.props.onBlur(event);
+          }
+        },
+        onFocus: function onFocus(event) {
+          if (_Platform.default.isTV) {
+            _this2._opacityActive(150);
+          }
+          if (_this2.props.onFocus != null) {
+            _this2.props.onFocus(event);
+          }
+        },
+        onLongPress: this.props.onLongPress,
+        onPress: this.props.onPress,
+        onPressIn: function onPressIn(event) {
+          _this2._opacityActive(
+          event.dispatchConfig.registrationName === 'onResponderGrant' ?
+          0 :
+          150);
+
+          if (_this2.props.onPressIn != null) {
+            _this2.props.onPressIn(event);
+          }
+        },
+        onPressOut: function onPressOut(event) {
+          _this2._opacityInactive(250);
+          if (_this2.props.onPressOut != null) {
+            _this2.props.onPressOut(event);
+          }
+        } };
+
+    } }, { key: "_setOpacityTo", value: function _setOpacityTo(
+
+
+
+
+    toValue, duration) {
+      _Animated.default.timing(this.state.anim, {
+        toValue: toValue,
+        duration: duration,
+        easing: _Easing.default.inOut(_Easing.default.quad),
+        useNativeDriver: true }).
+      start();
+    } }, { key: "_opacityActive", value: function _opacityActive(
+
+    duration) {var _this$props$activeOpa;
+      this._setOpacityTo((_this$props$activeOpa = this.props.activeOpacity) != null ? _this$props$activeOpa : 0.2, duration);
+    } }, { key: "_opacityInactive", value: function _opacityInactive(
+
+    duration) {
+      this._setOpacityTo(this._getChildStyleOpacityWithDefault(), duration);
+    } }, { key: "_getChildStyleOpacityWithDefault", value: function _getChildStyleOpacityWithDefault()
+
+    {var _flattenStyle;
+      var opacity = (_flattenStyle = (0, _flattenStyle2.default)(this.props.style)) == null ? void 0 : _flattenStyle.opacity;
+      return typeof opacity === 'number' ? opacity : 1;
+    } }, { key: "render", value: function render()
+
+    {var _this$state$pressabil =
+
+
+
+
+
+
+      this.state.pressability.getEventHandlers(),onBlur = _this$state$pressabil.onBlur,onFocus = _this$state$pressabil.onFocus,eventHandlersWithoutBlurAndFocus = _objectWithoutProperties(_this$state$pressabil, ["onBlur", "onFocus"]);
+
+      return (
+        React.createElement(_Animated.default.View, _extends({
+          accessible: this.props.accessible !== false,
+          accessibilityLabel: this.props.accessibilityLabel,
+          accessibilityHint: this.props.accessibilityHint,
+          accessibilityRole: this.props.accessibilityRole,
+          accessibilityState: this.props.accessibilityState,
+          accessibilityActions: this.props.accessibilityActions,
+          onAccessibilityAction: this.props.onAccessibilityAction,
+          accessibilityValue: this.props.accessibilityValue,
+          importantForAccessibility: this.props.importantForAccessibility,
+          accessibilityLiveRegion: this.props.accessibilityLiveRegion,
+          accessibilityViewIsModal: this.props.accessibilityViewIsModal,
+          accessibilityElementsHidden: this.props.accessibilityElementsHidden,
+          style: [this.props.style, { opacity: this.state.anim }],
+          nativeID: this.props.nativeID,
+          testID: this.props.testID,
+          onLayout: this.props.onLayout,
+          nextFocusDown: this.props.nextFocusDown,
+          nextFocusForward: this.props.nextFocusForward,
+          nextFocusLeft: this.props.nextFocusLeft,
+          nextFocusRight: this.props.nextFocusRight,
+          nextFocusUp: this.props.nextFocusUp,
+          hasTVPreferredFocus: this.props.hasTVPreferredFocus,
+          hitSlop: this.props.hitSlop,
+          focusable:
+          this.props.focusable !== false && this.props.onPress !== undefined,
+
+          ref: this.props.hostRef },
+        eventHandlersWithoutBlurAndFocus, { __self: this, __source: { fileName: _jsxFileName, lineNumber: 224, columnNumber: 7 } }),
+        this.props.children,
+        __DEV__ ?
+        React.createElement(_PressabilityDebug.PressabilityDebugView, { color: "cyan", hitSlop: this.props.hitSlop, __self: this, __source: { fileName: _jsxFileName, lineNumber: 255, columnNumber: 11 } }) :
+        null));
+
+
+    } }, { key: "componentDidMount", value: function componentDidMount()
+
+    {var _this3 = this;
+      if (_Platform.default.isTV) {
+        this._tvTouchable = new _TVTouchable.default(this, {
+          getDisabled: function getDisabled() {return _this3.props.disabled === true;},
+          onBlur: function onBlur(event) {
+            if (_this3.props.onBlur != null) {
+              _this3.props.onBlur(event);
+            }
+          },
+          onFocus: function onFocus(event) {
+            if (_this3.props.onFocus != null) {
+              _this3.props.onFocus(event);
+            }
+          },
+          onPress: function onPress(event) {
+            if (_this3.props.onPress != null) {
+              _this3.props.onPress(event);
+            }
+          } });
+
+      }
+    } }, { key: "componentDidUpdate", value: function componentDidUpdate(
+
+    prevProps, prevState) {
+      this.state.pressability.configure(this._createPressabilityConfig());
+      if (this.props.disabled !== prevProps.disabled) {
+        this._opacityInactive(250);
+      }
+    } }, { key: "componentWillUnmount", value: function componentWillUnmount()
+
+    {
+      if (_Platform.default.isTV) {
+        if (this._tvTouchable != null) {
+          this._tvTouchable.destroy();
+        }
+      }
+      this.state.pressability.reset();
+    } }]);return TouchableOpacity;}(React.Component);
+
+
+module.exports = React.forwardRef(function (props, hostRef) {return (
+    React.createElement(TouchableOpacity, _extends({}, props, { hostRef: hostRef, __self: _this4, __source: { fileName: _jsxFileName, lineNumber: 302, columnNumber: 3 } })));});

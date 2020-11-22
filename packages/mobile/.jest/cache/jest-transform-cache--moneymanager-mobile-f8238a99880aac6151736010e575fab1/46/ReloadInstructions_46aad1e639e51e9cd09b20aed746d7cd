@@ -1,0 +1,37 @@
+5f203ef276be3b6b2d568676383dc2a3
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+var _reactNative = require("react-native");
+var _react = _interopRequireDefault(require("react"));var _this = this,_jsxFileName = "/home/vinibispodev/Documents/Business/moneymanager/node_modules/react-native/Libraries/NewAppScreen/components/ReloadInstructions.js";
+
+var styles = _reactNative.StyleSheet.create({
+  highlight: {
+    fontWeight: '700' } });
+
+
+
+var ReloadInstructions = _reactNative.Platform.select({
+  ios: function ios() {return (
+      _react.default.createElement(_reactNative.Text, { __self: _this, __source: { fileName: _jsxFileName, lineNumber: 23, columnNumber: 5 } }, "Press ",
+      _react.default.createElement(_reactNative.Text, { style: styles.highlight, __self: _this, __source: { fileName: _jsxFileName, lineNumber: 24, columnNumber: 13 } }, "Cmd + R"), " in the simulator to reload your app's code."));},
+
+
+
+  default: function _default() {return (
+      _react.default.createElement(_reactNative.Text, { __self: _this, __source: { fileName: _jsxFileName, lineNumber: 29, columnNumber: 5 } }, "Double tap ",
+      _react.default.createElement(_reactNative.Text, { style: styles.highlight, __self: _this, __source: { fileName: _jsxFileName, lineNumber: 30, columnNumber: 18 } }, "R"), " on your keyboard to reload your app's code."));} });var _default =
+
+
+
+
+
+ReloadInstructions;exports.default = _default;
