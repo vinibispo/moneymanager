@@ -1,0 +1,15 @@
+{
+  "name": "moneymanager",
+  "private": "true",
+  "version": "1.0.0",
+  "main": "index.js",
+  "workspaces":{
+    "packages": [
+      "packages/mobile",
+      "packages/frontend"
+    ]
+  },
+  "repository": "git@github.com:vinibispo/moneymanager.git",
+  "author": "vinibispo <vini.bispo015@gmail.com>",
+  "license": "MIT"
+}

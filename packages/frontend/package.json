@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "@moneymanager/frontend",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
