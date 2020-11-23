@@ -1,2 +1,3 @@
-const config = require('@moneymanager/eslint-config')
+const config = require("@moneymanager/eslint-config");
+
 module.exports = config;
