@@ -1,34 +1,10 @@
-const { name } = require("./package.json");
-
+const baseConfig = require('../../jest.config')
+delete baseConfig.projects
+const {join} = require('path')
 module.exports = {
-  collectCoverageFrom: [
-    "**/*.{ts,tsx}",
-    "!**/__tests__/**",
-    "!**/coverage/**",
-    "!jest.config.js",
-  ],
-  coverageThreshold: {
-    global: {
-      branches: 100,
-      functions: 100,
-      lines: 100,
-      statements: 100,
-    },
-  },
-  setupFiles: ["<rootDir>/config/setup.js"],
-  preset: "ts-jest",
-  testPathIgnorePatterns: [
-    "/.next/",
-    "/node_modules/",
-    "/tests/",
-    "/coverage/",
-  ],
-  testRegex: "(/__test__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-  testURL: "http://localhost",
-  testEnvironment: "jsdom",
-  moduleFileExtensions: ["ts", "tsx", "js", "json"],
+  ...baseConfig,
+  setupFilesAfterEnv: [join(__dirname, "setupTests")],
   transform: {
-    ".(ts|tsx)": "babel-jest",
+    "^.+\\.(js|jsx|ts|tsx)$": join(__dirname, "../../node_modules/babel-jest"),
   },
-  transformIgnorePatterns: ["<rootDir>/node_modules/"],
 };

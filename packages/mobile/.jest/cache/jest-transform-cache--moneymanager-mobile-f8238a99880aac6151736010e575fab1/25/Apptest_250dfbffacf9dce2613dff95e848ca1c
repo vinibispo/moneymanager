@@ -1,0 +1,90 @@
+0ae7d07b43d0933f027771f01904c169
+"use strict";
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactNative = require("react-native");
+
+var _reactNative2 = require("@testing-library/react-native");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function Example() {
+  var _React$useState = _react["default"].useState(''),
+      _React$useState2 = _slicedToArray(_React$useState, 2),
+      name = _React$useState2[0],
+      setUser = _React$useState2[1];
+
+  var _React$useState3 = _react["default"].useState(false),
+      _React$useState4 = _slicedToArray(_React$useState3, 2),
+      show = _React$useState4[0],
+      setShow = _React$useState4[1];
+
+  return /*#__PURE__*/_react["default"].createElement(_reactNative.View, null, /*#__PURE__*/_react["default"].createElement(_reactNative.TextInput, {
+    value: name,
+    onChangeText: setUser,
+    testID: "input"
+  }), /*#__PURE__*/_react["default"].createElement(_reactNative.Button, {
+    title: "Print Username",
+    onPress: function onPress() {
+      // let's pretend this is making a server request, so it's async
+      // (you'd want to mock this imaginary request in your unit tests)...
+      setTimeout(function () {
+        setShow(!show);
+      }, Math.floor(Math.random() * 200));
+    }
+  }), show && /*#__PURE__*/_react["default"].createElement(_reactNative.Text, {
+    testID: "printed-username"
+  }, name));
+}
+
+test('examples of some things', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+  var _render, getByTestId, getByText, queryByTestId, toJSON, famousWomanInHistory, input, button;
+
+  return regeneratorRuntime.wrap(function _callee$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _render = (0, _reactNative2.render)( /*#__PURE__*/_react["default"].createElement(Example, null)), getByTestId = _render.getByTestId, getByText = _render.getByText, queryByTestId = _render.queryByTestId, toJSON = _render.toJSON;
+          famousWomanInHistory = 'Ada Lovelace';
+          input = getByTestId('input');
+
+          _reactNative2.fireEvent.changeText(input, famousWomanInHistory);
+
+          button = getByText('Print Username');
+
+          _reactNative2.fireEvent.press(button);
+
+          _context.next = 8;
+          return (0, _reactNative2.waitFor)(function () {
+            return expect(queryByTestId('printed-username')).toBeTruthy();
+          });
+
+        case 8:
+          expect(getByTestId('printed-username').props.children).toBe(famousWomanInHistory);
+          expect(toJSON()).toMatchSnapshot();
+
+        case 10:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _callee);
+})));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwcC10ZXN0LnRzeCJdLCJuYW1lcyI6WyJFeGFtcGxlIiwiUmVhY3QiLCJ1c2VTdGF0ZSIsIm5hbWUiLCJzZXRVc2VyIiwic2hvdyIsInNldFNob3ciLCJzZXRUaW1lb3V0IiwiTWF0aCIsImZsb29yIiwicmFuZG9tIiwidGVzdCIsImdldEJ5VGVzdElkIiwiZ2V0QnlUZXh0IiwicXVlcnlCeVRlc3RJZCIsInRvSlNPTiIsImZhbW91c1dvbWFuSW5IaXN0b3J5IiwiaW5wdXQiLCJmaXJlRXZlbnQiLCJjaGFuZ2VUZXh0IiwiYnV0dG9uIiwicHJlc3MiLCJleHBlY3QiLCJ0b0JlVHJ1dGh5IiwicHJvcHMiLCJjaGlsZHJlbiIsInRvQmUiLCJ0b01hdGNoU25hcHNob3QiXSwibWFwcGluZ3MiOiI7O0FBQUE7O0FBQ0E7O0FBQ0E7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBRUEsU0FBU0EsT0FBVCxHQUFtQjtBQUFBLHdCQUNPQyxrQkFBTUMsUUFBTixDQUFlLEVBQWYsQ0FEUDtBQUFBO0FBQUEsTUFDVkMsSUFEVTtBQUFBLE1BQ0pDLE9BREk7O0FBQUEseUJBRU9ILGtCQUFNQyxRQUFOLENBQWUsS0FBZixDQUZQO0FBQUE7QUFBQSxNQUVWRyxJQUZVO0FBQUEsTUFFSkMsT0FGSTs7QUFJakIsc0JBQ0UsZ0NBQUMsaUJBQUQscUJBQ0UsZ0NBQUMsc0JBQUQ7QUFBVyxJQUFBLEtBQUssRUFBRUgsSUFBbEI7QUFBd0IsSUFBQSxZQUFZLEVBQUVDLE9BQXRDO0FBQStDLElBQUEsTUFBTSxFQUFDO0FBQXRELElBREYsZUFFRSxnQ0FBQyxtQkFBRDtBQUNFLElBQUEsS0FBSyxFQUFDLGdCQURSO0FBRUUsSUFBQSxPQUFPLEVBQUUsbUJBQU07QUFDYjtBQUNBO0FBQ0FHLE1BQUFBLFVBQVUsQ0FBQyxZQUFNO0FBQ2ZELFFBQUFBLE9BQU8sQ0FBQyxDQUFDRCxJQUFGLENBQVA7QUFDRCxPQUZTLEVBRVBHLElBQUksQ0FBQ0MsS0FBTCxDQUFXRCxJQUFJLENBQUNFLE1BQUwsS0FBZ0IsR0FBM0IsQ0FGTyxDQUFWO0FBR0Q7QUFSSCxJQUZGLEVBWUdMLElBQUksaUJBQUksZ0NBQUMsaUJBQUQ7QUFBTSxJQUFBLE1BQU0sRUFBQztBQUFiLEtBQWlDRixJQUFqQyxDQVpYLENBREY7QUFnQkQ7O0FBRURRLElBQUksQ0FBQyx5QkFBRCx1RUFBNEI7QUFBQTs7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLG9CQUMwQix3Q0FBTyxnQ0FBQyxPQUFELE9BQVAsQ0FEMUIsRUFDdkJDLFdBRHVCLFdBQ3ZCQSxXQUR1QixFQUNWQyxTQURVLFdBQ1ZBLFNBRFUsRUFDQ0MsYUFERCxXQUNDQSxhQURELEVBQ2dCQyxNQURoQixXQUNnQkEsTUFEaEI7QUFFeEJDLFVBQUFBLG9CQUZ3QixHQUVELGNBRkM7QUFJeEJDLFVBQUFBLEtBSndCLEdBSWhCTCxXQUFXLENBQUMsT0FBRCxDQUpLOztBQUs5Qk0sa0NBQVVDLFVBQVYsQ0FBcUJGLEtBQXJCLEVBQTRCRCxvQkFBNUI7O0FBRU1JLFVBQUFBLE1BUHdCLEdBT2ZQLFNBQVMsQ0FBQyxnQkFBRCxDQVBNOztBQVE5Qkssa0NBQVVHLEtBQVYsQ0FBZ0JELE1BQWhCOztBQVI4QjtBQUFBLGlCQVV4QiwyQkFBUTtBQUFBLG1CQUFNRSxNQUFNLENBQUNSLGFBQWEsQ0FBQyxrQkFBRCxDQUFkLENBQU4sQ0FBMENTLFVBQTFDLEVBQU47QUFBQSxXQUFSLENBVndCOztBQUFBO0FBWTlCRCxVQUFBQSxNQUFNLENBQUNWLFdBQVcsQ0FBQyxrQkFBRCxDQUFYLENBQWdDWSxLQUFoQyxDQUFzQ0MsUUFBdkMsQ0FBTixDQUF1REMsSUFBdkQsQ0FDRVYsb0JBREY7QUFHQU0sVUFBQUEsTUFBTSxDQUFDUCxNQUFNLEVBQVAsQ0FBTixDQUFpQlksZUFBakI7O0FBZjhCO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLENBQTVCLEdBQUoiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHtCdXR0b24sIFRleHQsIFRleHRJbnB1dCwgVmlld30gZnJvbSAncmVhY3QtbmF0aXZlJztcbmltcG9ydCB7ZmlyZUV2ZW50LCByZW5kZXIsIHdhaXRGb3J9IGZyb20gJ0B0ZXN0aW5nLWxpYnJhcnkvcmVhY3QtbmF0aXZlJztcblxuZnVuY3Rpb24gRXhhbXBsZSgpIHtcbiAgY29uc3QgW25hbWUsIHNldFVzZXJdID0gUmVhY3QudXNlU3RhdGUoJycpO1xuICBjb25zdCBbc2hvdywgc2V0U2hvd10gPSBSZWFjdC51c2VTdGF0ZShmYWxzZSk7XG5cbiAgcmV0dXJuIChcbiAgICA8Vmlldz5cbiAgICAgIDxUZXh0SW5wdXQgdmFsdWU9e25hbWV9IG9uQ2hhbmdlVGV4dD17c2V0VXNlcn0gdGVzdElEPVwiaW5wdXRcIiAvPlxuICAgICAgPEJ1dHRvblxuICAgICAgICB0aXRsZT1cIlByaW50IFVzZXJuYW1lXCJcbiAgICAgICAgb25QcmVzcz17KCkgPT4ge1xuICAgICAgICAgIC8vIGxldCdzIHByZXRlbmQgdGhpcyBpcyBtYWtpbmcgYSBzZXJ2ZXIgcmVxdWVzdCwgc28gaXQncyBhc3luY1xuICAgICAgICAgIC8vICh5b3UnZCB3YW50IHRvIG1vY2sgdGhpcyBpbWFnaW5hcnkgcmVxdWVzdCBpbiB5b3VyIHVuaXQgdGVzdHMpLi4uXG4gICAgICAgICAgc2V0VGltZW91dCgoKSA9PiB7XG4gICAgICAgICAgICBzZXRTaG93KCFzaG93KTtcbiAgICAgICAgICB9LCBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiAyMDApKTtcbiAgICAgICAgfX1cbiAgICAgIC8+XG4gICAgICB7c2hvdyAmJiA8VGV4dCB0ZXN0SUQ9XCJwcmludGVkLXVzZXJuYW1lXCI+e25hbWV9PC9UZXh0Pn1cbiAgICA8L1ZpZXc+XG4gICk7XG59XG5cbnRlc3QoJ2V4YW1wbGVzIG9mIHNvbWUgdGhpbmdzJywgYXN5bmMgKCkgPT4ge1xuICBjb25zdCB7Z2V0QnlUZXN0SWQsIGdldEJ5VGV4dCwgcXVlcnlCeVRlc3RJZCwgdG9KU09OfSA9IHJlbmRlcig8RXhhbXBsZSAvPik7XG4gIGNvbnN0IGZhbW91c1dvbWFuSW5IaXN0b3J5ID0gJ0FkYSBMb3ZlbGFjZSc7XG5cbiAgY29uc3QgaW5wdXQgPSBnZXRCeVRlc3RJZCgnaW5wdXQnKTtcbiAgZmlyZUV2ZW50LmNoYW5nZVRleHQoaW5wdXQsIGZhbW91c1dvbWFuSW5IaXN0b3J5KTtcblxuICBjb25zdCBidXR0b24gPSBnZXRCeVRleHQoJ1ByaW50IFVzZXJuYW1lJyk7XG4gIGZpcmVFdmVudC5wcmVzcyhidXR0b24pO1xuXG4gIGF3YWl0IHdhaXRGb3IoKCkgPT4gZXhwZWN0KHF1ZXJ5QnlUZXN0SWQoJ3ByaW50ZWQtdXNlcm5hbWUnKSkudG9CZVRydXRoeSgpKTtcblxuICBleHBlY3QoZ2V0QnlUZXN0SWQoJ3ByaW50ZWQtdXNlcm5hbWUnKS5wcm9wcy5jaGlsZHJlbikudG9CZShcbiAgICBmYW1vdXNXb21hbkluSGlzdG9yeSxcbiAgKTtcbiAgZXhwZWN0KHRvSlNPTigpKS50b01hdGNoU25hcHNob3QoKTtcbn0pO1xuIl19

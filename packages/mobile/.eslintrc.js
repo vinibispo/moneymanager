@@ -1,6 +1,2 @@
-module.exports = {
-  root: true,
-  extends: '@react-native-community',
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
-};
+const config = require('@moneymanager/eslint-config')
+module.exports = config;

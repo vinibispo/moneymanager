@@ -1,9 +1,9 @@
-import React from 'react';
-import {Button, Text, TextInput, View} from 'react-native';
-import {fireEvent, render, waitFor} from '@testing-library/react-native';
+import React from "react";
+import { Button, Text, TextInput, View } from "react-native";
+import { fireEvent, render, waitFor } from "@testing-library/react-native";
 
 function Example() {
-  const [name, setUser] = React.useState('');
+  const [name, setUser] = React.useState("");
   const [show, setShow] = React.useState(false);
 
   return (
@@ -24,20 +24,20 @@ function Example() {
   );
 }
 
-test('examples of some things', async () => {
-  const {getByTestId, getByText, queryByTestId, toJSON} = render(<Example />);
-  const famousWomanInHistory = 'Ada Lovelace';
+test("examples of some things", async () => {
+  const { getByTestId, getByText, queryByTestId, toJSON } = render(<Example />);
+  const famousWomanInHistory = "Ada Lovelace";
 
-  const input = getByTestId('input');
+  const input = getByTestId("input");
   fireEvent.changeText(input, famousWomanInHistory);
 
-  const button = getByText('Print Username');
+  const button = getByText("Print Username");
   fireEvent.press(button);
 
-  await waitFor(() => expect(queryByTestId('printed-username')).toBeTruthy());
+  await waitFor(() => expect(queryByTestId("printed-username")).toBeTruthy());
 
-  expect(getByTestId('printed-username').props.children).toBe(
-    famousWomanInHistory,
+  expect(getByTestId("printed-username").props.children).toBe(
+    famousWomanInHistory
   );
   expect(toJSON()).toMatchSnapshot();
 });

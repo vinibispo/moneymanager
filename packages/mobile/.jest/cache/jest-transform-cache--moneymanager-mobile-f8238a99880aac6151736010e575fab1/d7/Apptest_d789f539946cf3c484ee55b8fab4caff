@@ -1,0 +1,76 @@
+cff6aa0c2984b5fd7f0dd6d34d5bc74a
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactNative = require("react-native");
+
+var _reactNative2 = require("@testing-library/react-native");
+
+function Example() {
+  var _React$useState = _react["default"].useState(''),
+      _React$useState2 = (0, _slicedToArray2["default"])(_React$useState, 2),
+      name = _React$useState2[0],
+      setUser = _React$useState2[1];
+
+  var _React$useState3 = _react["default"].useState(false),
+      _React$useState4 = (0, _slicedToArray2["default"])(_React$useState3, 2),
+      show = _React$useState4[0],
+      setShow = _React$useState4[1];
+
+  return _react["default"].createElement(_reactNative.View, null, _react["default"].createElement(_reactNative.TextInput, {
+    value: name,
+    onChangeText: setUser,
+    testID: "input"
+  }), _react["default"].createElement(_reactNative.Button, {
+    title: "Print Username",
+    onPress: function onPress() {
+      setTimeout(function () {
+        setShow(!show);
+      }, Math.floor(Math.random() * 200));
+    }
+  }), show && _react["default"].createElement(_reactNative.Text, {
+    testID: "printed-username"
+  }, name));
+}
+
+test('examples of some things', (0, _asyncToGenerator2["default"])(_regenerator["default"].mark(function _callee() {
+  var _render, getByTestId, getByText, queryByTestId, toJSON, famousWomanInHistory, input, button;
+
+  return _regenerator["default"].wrap(function _callee$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _render = (0, _reactNative2.render)(_react["default"].createElement(Example, null)), getByTestId = _render.getByTestId, getByText = _render.getByText, queryByTestId = _render.queryByTestId, toJSON = _render.toJSON;
+          famousWomanInHistory = 'Ada Lovelace';
+          input = getByTestId('input');
+
+          _reactNative2.fireEvent.changeText(input, famousWomanInHistory);
+
+          button = getByText('Print Username');
+
+          _reactNative2.fireEvent.press(button);
+
+          _context.next = 8;
+          return (0, _reactNative2.waitFor)(function () {
+            return expect(queryByTestId('printed-username')).toBeTruthy();
+          });
+
+        case 8:
+          expect(getByTestId('printed-username').props.children).toBe(famousWomanInHistory);
+          expect(toJSON()).toMatchSnapshot();
+
+        case 10:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, _callee);
+})));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkFwcC10ZXN0LnRzeCJdLCJuYW1lcyI6WyJFeGFtcGxlIiwiUmVhY3QiLCJ1c2VTdGF0ZSIsIm5hbWUiLCJzZXRVc2VyIiwic2hvdyIsInNldFNob3ciLCJzZXRUaW1lb3V0IiwiTWF0aCIsImZsb29yIiwicmFuZG9tIiwidGVzdCIsImdldEJ5VGVzdElkIiwiZ2V0QnlUZXh0IiwicXVlcnlCeVRlc3RJZCIsInRvSlNPTiIsImZhbW91c1dvbWFuSW5IaXN0b3J5IiwiaW5wdXQiLCJmaXJlRXZlbnQiLCJjaGFuZ2VUZXh0IiwiYnV0dG9uIiwicHJlc3MiLCJleHBlY3QiLCJ0b0JlVHJ1dGh5IiwicHJvcHMiLCJjaGlsZHJlbiIsInRvQmUiLCJ0b01hdGNoU25hcHNob3QiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUE7O0FBQ0E7O0FBQ0E7O0FBRUEsU0FBU0EsT0FBVCxHQUFtQjtBQUFBLHdCQUNPQyxrQkFBTUMsUUFBTixDQUFlLEVBQWYsQ0FEUDtBQUFBO0FBQUEsTUFDVkMsSUFEVTtBQUFBLE1BQ0pDLE9BREk7O0FBQUEseUJBRU9ILGtCQUFNQyxRQUFOLENBQWUsS0FBZixDQUZQO0FBQUE7QUFBQSxNQUVWRyxJQUZVO0FBQUEsTUFFSkMsT0FGSTs7QUFJakIsU0FDRSxnQ0FBQyxpQkFBRCxRQUNFLGdDQUFDLHNCQUFEO0FBQVcsSUFBQSxLQUFLLEVBQUVILElBQWxCO0FBQXdCLElBQUEsWUFBWSxFQUFFQyxPQUF0QztBQUErQyxJQUFBLE1BQU0sRUFBQztBQUF0RCxJQURGLEVBRUUsZ0NBQUMsbUJBQUQ7QUFDRSxJQUFBLEtBQUssRUFBQyxnQkFEUjtBQUVFLElBQUEsT0FBTyxFQUFFLG1CQUFNO0FBR2JHLE1BQUFBLFVBQVUsQ0FBQyxZQUFNO0FBQ2ZELFFBQUFBLE9BQU8sQ0FBQyxDQUFDRCxJQUFGLENBQVA7QUFDRCxPQUZTLEVBRVBHLElBQUksQ0FBQ0MsS0FBTCxDQUFXRCxJQUFJLENBQUNFLE1BQUwsS0FBZ0IsR0FBM0IsQ0FGTyxDQUFWO0FBR0Q7QUFSSCxJQUZGLEVBWUdMLElBQUksSUFBSSxnQ0FBQyxpQkFBRDtBQUFNLElBQUEsTUFBTSxFQUFDO0FBQWIsS0FBaUNGLElBQWpDLENBWlgsQ0FERjtBQWdCRDs7QUFFRFEsSUFBSSxDQUFDLHlCQUFELGtFQUE0QjtBQUFBOztBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsb0JBQzBCLDBCQUFPLGdDQUFDLE9BQUQsT0FBUCxDQUQxQixFQUN2QkMsV0FEdUIsV0FDdkJBLFdBRHVCLEVBQ1ZDLFNBRFUsV0FDVkEsU0FEVSxFQUNDQyxhQURELFdBQ0NBLGFBREQsRUFDZ0JDLE1BRGhCLFdBQ2dCQSxNQURoQjtBQUV4QkMsVUFBQUEsb0JBRndCLEdBRUQsY0FGQztBQUl4QkMsVUFBQUEsS0FKd0IsR0FJaEJMLFdBQVcsQ0FBQyxPQUFELENBSks7O0FBSzlCTSxrQ0FBVUMsVUFBVixDQUFxQkYsS0FBckIsRUFBNEJELG9CQUE1Qjs7QUFFTUksVUFBQUEsTUFQd0IsR0FPZlAsU0FBUyxDQUFDLGdCQUFELENBUE07O0FBUTlCSyxrQ0FBVUcsS0FBVixDQUFnQkQsTUFBaEI7O0FBUjhCO0FBQUEsaUJBVXhCLDJCQUFRO0FBQUEsbUJBQU1FLE1BQU0sQ0FBQ1IsYUFBYSxDQUFDLGtCQUFELENBQWQsQ0FBTixDQUEwQ1MsVUFBMUMsRUFBTjtBQUFBLFdBQVIsQ0FWd0I7O0FBQUE7QUFZOUJELFVBQUFBLE1BQU0sQ0FBQ1YsV0FBVyxDQUFDLGtCQUFELENBQVgsQ0FBZ0NZLEtBQWhDLENBQXNDQyxRQUF2QyxDQUFOLENBQXVEQyxJQUF2RCxDQUNFVixvQkFERjtBQUdBTSxVQUFBQSxNQUFNLENBQUNQLE1BQU0sRUFBUCxDQUFOLENBQWlCWSxlQUFqQjs7QUFmOEI7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsQ0FBNUIsR0FBSiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQge0J1dHRvbiwgVGV4dCwgVGV4dElucHV0LCBWaWV3fSBmcm9tICdyZWFjdC1uYXRpdmUnO1xuaW1wb3J0IHtmaXJlRXZlbnQsIHJlbmRlciwgd2FpdEZvcn0gZnJvbSAnQHRlc3RpbmctbGlicmFyeS9yZWFjdC1uYXRpdmUnO1xuXG5mdW5jdGlvbiBFeGFtcGxlKCkge1xuICBjb25zdCBbbmFtZSwgc2V0VXNlcl0gPSBSZWFjdC51c2VTdGF0ZSgnJyk7XG4gIGNvbnN0IFtzaG93LCBzZXRTaG93XSA9IFJlYWN0LnVzZVN0YXRlKGZhbHNlKTtcblxuICByZXR1cm4gKFxuICAgIDxWaWV3PlxuICAgICAgPFRleHRJbnB1dCB2YWx1ZT17bmFtZX0gb25DaGFuZ2VUZXh0PXtzZXRVc2VyfSB0ZXN0SUQ9XCJpbnB1dFwiIC8+XG4gICAgICA8QnV0dG9uXG4gICAgICAgIHRpdGxlPVwiUHJpbnQgVXNlcm5hbWVcIlxuICAgICAgICBvblByZXNzPXsoKSA9PiB7XG4gICAgICAgICAgLy8gbGV0J3MgcHJldGVuZCB0aGlzIGlzIG1ha2luZyBhIHNlcnZlciByZXF1ZXN0LCBzbyBpdCdzIGFzeW5jXG4gICAgICAgICAgLy8gKHlvdSdkIHdhbnQgdG8gbW9jayB0aGlzIGltYWdpbmFyeSByZXF1ZXN0IGluIHlvdXIgdW5pdCB0ZXN0cykuLi5cbiAgICAgICAgICBzZXRUaW1lb3V0KCgpID0+IHtcbiAgICAgICAgICAgIHNldFNob3coIXNob3cpO1xuICAgICAgICAgIH0sIE1hdGguZmxvb3IoTWF0aC5yYW5kb20oKSAqIDIwMCkpO1xuICAgICAgICB9fVxuICAgICAgLz5cbiAgICAgIHtzaG93ICYmIDxUZXh0IHRlc3RJRD1cInByaW50ZWQtdXNlcm5hbWVcIj57bmFtZX08L1RleHQ+fVxuICAgIDwvVmlldz5cbiAgKTtcbn1cblxudGVzdCgnZXhhbXBsZXMgb2Ygc29tZSB0aGluZ3MnLCBhc3luYyAoKSA9PiB7XG4gIGNvbnN0IHtnZXRCeVRlc3RJZCwgZ2V0QnlUZXh0LCBxdWVyeUJ5VGVzdElkLCB0b0pTT059ID0gcmVuZGVyKDxFeGFtcGxlIC8+KTtcbiAgY29uc3QgZmFtb3VzV29tYW5Jbkhpc3RvcnkgPSAnQWRhIExvdmVsYWNlJztcblxuICBjb25zdCBpbnB1dCA9IGdldEJ5VGVzdElkKCdpbnB1dCcpO1xuICBmaXJlRXZlbnQuY2hhbmdlVGV4dChpbnB1dCwgZmFtb3VzV29tYW5Jbkhpc3RvcnkpO1xuXG4gIGNvbnN0IGJ1dHRvbiA9IGdldEJ5VGV4dCgnUHJpbnQgVXNlcm5hbWUnKTtcbiAgZmlyZUV2ZW50LnByZXNzKGJ1dHRvbik7XG5cbiAgYXdhaXQgd2FpdEZvcigoKSA9PiBleHBlY3QocXVlcnlCeVRlc3RJZCgncHJpbnRlZC11c2VybmFtZScpKS50b0JlVHJ1dGh5KCkpO1xuXG4gIGV4cGVjdChnZXRCeVRlc3RJZCgncHJpbnRlZC11c2VybmFtZScpLnByb3BzLmNoaWxkcmVuKS50b0JlKFxuICAgIGZhbW91c1dvbWFuSW5IaXN0b3J5LFxuICApO1xuICBleHBlY3QodG9KU09OKCkpLnRvTWF0Y2hTbmFwc2hvdCgpO1xufSk7XG4iXX0=

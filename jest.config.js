@@ -1,8 +1,9 @@
 module.exports = {
+  bail: true,
   clearMocks: true,
-  projects: ['<rootDir>/packages/frontend/jest.config.js'],
+  projects: ['<rootDir>/packages/*/jest.config.js'],
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js']
-}
+};
