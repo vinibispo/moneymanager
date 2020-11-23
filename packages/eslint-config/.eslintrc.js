@@ -41,6 +41,7 @@ module.exports = {
     'react/prop-types': 'off',
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
     'react/react-in-jsx-scope': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
