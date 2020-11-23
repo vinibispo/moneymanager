@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "lint:ruby": "cd packages/backend && bundle exec rubocop -A",
     "test": "npm-run-all test:*",
     "test:mobile": "yarn jest --passWithNoTests --findRelatedTests packages/mobile",
     "test:frontend": "yarn jest --passWithNoTests --findRelatedTests packages/frontend",
@@ -33,8 +34,8 @@
       "yarn test:frontend && yarn test:mobile"
     ],
     "**/*.rb": [
-      "bundle exec rubocop -a",
-      "yarn test:ruby"
+      "yarn lint:ruby",
+      "yarn test:backend"
     ]
   },
   "repository": "git@github.com:vinibispo/moneymanager.git",

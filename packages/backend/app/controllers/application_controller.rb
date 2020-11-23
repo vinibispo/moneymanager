@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::API
   attr_reader :current_user
+
   protected
+
   def authenticate_request!
     unless user_id_in_token?
       render json: { errors: ['Not Authenticated'] }, status: :unauthorized
@@ -12,15 +16,15 @@ class ApplicationController < ActionController::API
   end
 
   private
+
   def http_token
-    @http_token ||= if request.headers['SecureToken'].present?
-                      request.headers['SecureToken'].split(' ').last
-                    end
+    @http_token ||= (request.headers['SecureToken'].split(' ').last if request.headers['SecureToken'].present?)
   end
 
   def auth_token
     @auth_token ||= JsonWebToken.decode(http_token)
   end
+
   def user_id_in_token?
     http_token && auth_token && auth_token[:user_id].to_s
   end
