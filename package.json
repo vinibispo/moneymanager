@@ -16,9 +16,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test",
+      "pre-commit": "lint-staged",
       "pre-push": "npm test"
     }
+  },
+  "lint-staged": {
+    "*.ts": ["eslint --fix"],
+    "*.tsx": ["eslint --fix"]
   },
   "repository": "git@github.com:vinibispo/moneymanager.git",
   "author": "vinibispo <vini.bispo015@gmail.com>",
