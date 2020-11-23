@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "sh scripts/test.sh",
+    "test": "npm-run-all test:*",
+    "test:mobile": "yarn jest --passWithNoTests --findRelatedTests packages/mobile",
+    "test:frontend": "yarn jest --passWithNoTests --findRelatedTests packages/frontend",
+    "test:backend": "sh scripts/test_ruby.sh",
     "postinstall": "sh scripts/install.sh"
   },
   "workspaces": {
@@ -17,12 +20,22 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm test"
+      "pre-push": "yarn test"
     }
   },
   "lint-staged": {
-    "**/*.ts": ["eslint --fix"],
-    "**/*.tsx": ["eslint --fix"]
+    "**/*.ts": [
+      "eslint --fix",
+      "yarn test:frontend && yarn test:mobile"
+    ],
+    "**/*.tsx": [
+      "eslint --fix",
+      "yarn test:frontend && yarn test:mobile"
+    ],
+    "**/*.rb": [
+      "bundle exec rubocop -a",
+      "yarn test:ruby"
+    ]
   },
   "repository": "git@github.com:vinibispo/moneymanager.git",
   "author": "vinibispo <vini.bispo015@gmail.com>",
@@ -52,6 +65,7 @@
     "jest-dom": "^4.0.0",
     "lint-staged": "^10.5.1",
     "metro-react-native-babel-preset": "^0.64.0",
+    "npm-run-all": "^4.1.5",
     "react-inline-svg": "^1.1.0",
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.2"
