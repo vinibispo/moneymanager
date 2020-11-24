@@ -15,8 +15,7 @@
     "packages": [
       "packages/mobile",
       "packages/frontend",
-      "packages/eslint-config",
-      "packages/commitlint"
+      "packages/eslint-config"
     ]
   },
   "lint-staged": {
