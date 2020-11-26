@@ -39,7 +39,7 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
-    'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
     'import/no-extraneous-dependencies': 'off',
     'jsx-a11y/anchor-is-valid': [
