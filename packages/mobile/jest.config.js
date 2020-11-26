@@ -9,7 +9,7 @@ module.exports = {
   ...baseConfig,
   preset: "react-native",
   displayName: name,
-  setupFilesAfterEnv: ["@testing-library/jest-native/extend-expect"],
+  setupFilesAfterEnv: [join(__dirname, "setupTests")],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   transform: {
     "\\.(jsx|js)$": join(
