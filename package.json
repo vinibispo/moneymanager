@@ -5,9 +5,6 @@
   "main": "index.js",
   "scripts": {
     "lint:ruby": "cd packages/backend && bundle exec rubocop -A",
-    "test": "npm-run-all test:*",
-    "test:mobile": "yarn jest --passWithNoTests --findRelatedTests packages/mobile",
-    "test:frontend": "yarn jest --passWithNoTests --findRelatedTests packages/frontend",
     "test:backend": "sh scripts/test_ruby.sh",
     "postinstall": "sh scripts/install.sh"
   },
@@ -20,12 +17,10 @@
   },
   "lint-staged": {
     "**/*.ts": [
-      "eslint --fix",
-      "yarn test:frontend && yarn test:mobile"
+      "eslint --fix"
     ],
     "**/*.tsx": [
-      "eslint --fix",
-      "yarn test:frontend && yarn test:mobile"
+      "eslint --fix"
     ],
     "**/*.rb": [
       "yarn lint:ruby",
