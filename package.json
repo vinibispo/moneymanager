@@ -6,7 +6,8 @@
   "scripts": {
     "lint:ruby": "cd packages/backend && bundle exec rubocop -A",
     "test:backend": "sh scripts/test_ruby.sh",
-    "postinstall": "sh scripts/install.sh"
+    "postinstall": "sh scripts/install.sh",
+    "test": "npm-run-all test:*"
   },
   "workspaces": {
     "packages": [
