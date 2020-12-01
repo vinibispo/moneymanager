@@ -11,7 +11,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    attributes_for(:user).merge({ password: nil, email: nil })
   end
 
   # This should return the minimal set of values that should be in the session
@@ -23,6 +23,27 @@ RSpec.describe UsersController, type: :controller do
       user = User.create! valid_attributes
       get :index, params: {}
       expect(response).to be_successful
+    end
+  end
+
+  describe 'POST #create' do
+    context 'when has valid attributes' do
+      it 'returns a success response' do
+        post :create, params: { user: valid_attributes }, as: :json
+        expect(response).to be_successful
+      end
+
+      it 'renders show template' do
+        post :create, params: { user: valid_attributes }, as: :json
+        expect(response).to render_template(:show, as: :json)
+      end
+    end
+
+    context 'when has invalid attributes' do
+      it 'does not return a success response' do
+        post :create, params: { user: invalid_attributes }, as: :json
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
     end
   end
 end
