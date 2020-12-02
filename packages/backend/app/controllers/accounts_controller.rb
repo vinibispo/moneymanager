@@ -7,7 +7,7 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+    @accounts = Account.where(user_id: @current_user.id)
   end
 
   # GET /accounts/1
@@ -17,7 +17,7 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
-    @account = Account.new(account_params)
+    @account = Account.new(account_params.merge({ user_id: @current_user.id }))
 
     if @account.save
       render :show, status: :created, location: @account
@@ -46,11 +46,11 @@ class AccountsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_account
-    @account = Account.find(params[:id])
+    @account = Account.find(params[:id], user_id: @current_user[:id]) if @current_user.present?
   end
 
   # Only allow a list of trusted parameters through.
   def account_params
-    params.require(:account).permit(:name, :initial_value, :user_id, :active)
+    params.require(:account).permit(:name, :initial_value, :active)
   end
 end

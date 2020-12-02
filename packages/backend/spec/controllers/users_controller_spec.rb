@@ -46,4 +46,47 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
+  describe 'PUT/PATCH #update' do
+    context 'when has valid attributes' do
+      it 'returns a success response' do
+        user = create(:user)
+        put :update, params: { user: valid_attributes, id: user[:id] }, as: :json
+        expect(response).to be_successful
+      end
+    end
+
+    context 'when has invalid attributes' do
+      it 'does not return a success response' do
+        user = create(:user)
+        put :update, params: { user: invalid_attributes, id: user[:id] }, as: :json
+        expect(response).not_to be_successful
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    context 'when has valid id' do
+      it 'returns a success response' do
+        user = create(:user)
+        delete :destroy, params: { id: user[:id] }, as: :json
+        expect(response).to be_successful
+      end
+
+      it 'removes a user and get the right count' do
+        user = create(:user)
+        expect do
+          delete :destroy, params: { id: user[:id] }, as: :json
+        end.to change(User, :count).by(-1)
+      end
+    end
+
+    context 'when does not have valid id' do
+      it 'does not return a success response' do
+        user = create(:user)
+        delete :destroy, params: { id: 1 }, as: :json
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+  end
 end

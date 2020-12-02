@@ -42,6 +42,10 @@ RSpec/MultipleExpectations:
 # Offense count: 1
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: slashes, arguments
+Rails/Output:
+  Exclude:
+    - 'lib/generators/service/service_generator.rb'
+
 Rails/FilePath:
   Exclude:
     - 'config/environments/development.rb'

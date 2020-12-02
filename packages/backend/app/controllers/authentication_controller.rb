@@ -1,23 +1,15 @@
 # frozen_string_literal: true
 
 class AuthenticationController < ApplicationController
+  before_action :set_auth
   def create
-    user = User.find_by(email: params[:email])
-    if user&.authenticate(params[:password])
-      render json: payload(user)
-    else
-      render json: { errors: ['Invalid username/password'] }, status: :unauthorized
-    end
+    auth_response = @auth.perform
+    render json: auth_response[:message], status: auth_response[:status]
   end
 
   private
 
-  def payload(user)
-    return nil unless user&.id
-
-    {
-      auth_token: JsonWebToken.encode({ user_id: user.id }),
-      user: { id: user.id, email: user.email }
-    }
+  def set_auth
+    @auth = AuthService.new(params[:email], params[:password])
   end
 end
