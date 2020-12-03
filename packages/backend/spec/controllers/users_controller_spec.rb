@@ -54,6 +54,12 @@ RSpec.describe UsersController, type: :controller do
         put :update, params: { user: valid_attributes, id: user[:id] }, as: :json
         expect(response).to be_successful
       end
+
+      it 'renders show template' do
+        user = create(:user)
+        put :update, params: { user: valid_attributes, id: user[:id] }, as: :json
+        expect(response).to render_template(:show)
+      end
     end
 
     context 'when has invalid attributes' do

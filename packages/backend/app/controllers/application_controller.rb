@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  attr_reader :current_user
-
   protected
 
   def authenticate_request!
@@ -11,6 +9,7 @@ class ApplicationController < ActionController::API
       return
     end
     @current_user = User.find(auth_token[:user_id])
+    @current_user
   rescue JWT::VerificationError, JWT::DecodeError
     render json: { errors: ['Not Authenticated'] }, status: :unauthorized
   end

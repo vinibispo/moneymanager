@@ -17,7 +17,7 @@ RSpec.describe AccountsController, type: :controller do
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    { name: nil, initial_value: nil, active: nil }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -35,43 +35,48 @@ RSpec.describe AccountsController, type: :controller do
   end
 
   describe 'GET #show' do
-    xit 'returns a success response' do
+    it 'returns a success response' do
       account = Account.create! valid_attributes
-      get :show, params: { id: account.to_param }, as: :json
+      request.headers['SecureToken'] = auth[:message][:auth_token]
+      get :show, params: { id: account.to_param, user_id: user[:id] }, as: :json
       expect(response).to be_successful
     end
   end
 
   describe 'POST #create' do
     context 'with valid params' do
-      xit 'creates a new Account' do
+      it 'creates a new Account' do
         expect do
-          post :create, params: { account: valid_attributes }, as: :json
+          request.headers['SecureToken'] = auth[:message][:auth_token]
+          post :create, params: { account: valid_attributes, user_id: user[:id] }, as: :json
         end.to change(Account, :count).by(1)
       end
 
-      xit 'renders a JSON response with the new account' do
-        post :create, params: { account: valid_attributes }, as: :json
+      it 'renders a JSON response with the new account' do
+        request.headers['SecureToken'] = auth[:message][:auth_token]
+        post :create, params: { account: valid_attributes, user_id: user[:id] }, as: :json
         expect(response).to have_http_status(:created)
-        expect(response.content_type).to eq('application/json')
-        expect(response.location).to eq(account_url(Account.last))
+        expect(response.content_type).to include('application/json')
+        expect(response.location).to eq(user_account_url(user[:id], Account.last))
       end
     end
 
     context 'with invalid params' do
-      xit 'renders a JSON response with errors for the new account' do
-        post :create, params: { account: invalid_attributes }, as: :json
+      it 'renders a JSON response with errors for the new account' do
+        request.headers['SecureToken'] = auth[:message][:auth_token]
+        post :create, params: { account: invalid_attributes, user_id: user[:id] }, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to include('application/json')
       end
     end
   end
 
   describe 'DELETE #destroy' do
-    xit 'destroys the requested account' do
+    it 'destroys the requested account' do
       account = Account.create! valid_attributes
       expect do
-        delete :destroy, params: { id: account.to_param }, as: :json
+        request.headers['SecureToken'] = auth[:message][:auth_token]
+        delete :destroy, params: { id: account.to_param, user_id: user[:id] }, as: :json
       end.to change(Account, :count).by(-1)
     end
   end

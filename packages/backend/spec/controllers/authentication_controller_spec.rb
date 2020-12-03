@@ -10,5 +10,11 @@ RSpec.describe AuthenticationController, type: :controller do
       post :create, params: { email: user[:email], password: password }
       expect(response).to be_successful
     end
+
+    it 'does not have authenticated user' do
+      user = create(:user)
+      post :create, params: { email: user[:email], password: nil }
+      expect(response).to have_http_status(:unauthorized)
+    end
   end
 end
