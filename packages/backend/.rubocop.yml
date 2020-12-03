@@ -1,7 +1,9 @@
 inherit_from: .rubocop_todo.yml
 
 require:
+  - rubocop-performance
   - rubocop-rails
+  - rubocop-rake
   - rubocop-rspec
 AllCops:
   NewCops: enable
@@ -63,4 +65,5 @@ AllCops:
     Enabled: true
   Rails/WhereNot: # (new in 2.8)
     Enabled: true
+
 

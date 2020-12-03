@@ -15,7 +15,7 @@ Lint/UselessAssignment:
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods.
 # ExcludedMethods: refine
 Metrics/BlockLength:
-  Max: 79
+  Max: 200
 
 # Offense count: 6
 # Configuration parameters: EnforcedStyle.
@@ -25,6 +25,9 @@ Naming/VariableName:
     - 'spec/requests/authentications_spec.rb'
 
 # Offense count: 1
+RSpec/MultipleMemoizedHelpers:
+  Enabled: true
+  Max: 10
 RSpec/EmptyExampleGroup:
   Exclude:
     - 'spec/controllers/authentication_controller_spec.rb'

@@ -32,6 +32,22 @@ RSpec.describe AccountsController, type: :controller do
       expect(response).to be_successful
       expect(assigns(:accounts)).to eq([account])
     end
+
+    context 'when has invalid token' do
+      it 'returns unauthorized when has invalid response' do
+        request.headers['SecureToken'] = 'Bearer ashshhdhdhdhdhdhdhhdh'
+        get :index, params: { user_id: user[:id] }, as: :json
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+
+    context 'when has no token' do
+      it 'returns unauthorized' do
+        request.headers['SecureToken'] = nil
+        get :index, params: { user_id: user[:id] }, as: :json
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
   end
 
   describe 'GET #show' do
@@ -71,13 +87,55 @@ RSpec.describe AccountsController, type: :controller do
     end
   end
 
-  describe 'DELETE #destroy' do
-    it 'destroys the requested account' do
-      account = Account.create! valid_attributes
-      expect do
+  describe 'PUT #update' do
+    let(:new_attributes) do
+      { name: FFaker::Internet.name, initial_value: rand(0..2000), active: [true, false].sample, user_id: user[:id] }
+    end
+
+    context 'when has valid id' do
+      it 'updates the requested account' do
+        account = Account.create! valid_attributes
         request.headers['SecureToken'] = auth[:message][:auth_token]
-        delete :destroy, params: { id: account.to_param, user_id: user[:id] }, as: :json
-      end.to change(Account, :count).by(-1)
+        put :update, params: { id: account.to_param, user_id: user[:id], account: new_attributes }, as: :json
+        expect(response).to have_http_status(:ok)
+      end
+
+      it 'does not update when has no valid attributes' do
+        account = Account.create! valid_attributes
+        request.headers['SecureToken'] = auth[:message][:auth_token]
+        put :update, params: { id: account.to_param, user_id: user[:id], account: invalid_attributes }, as: :json
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+
+    context 'when has no valid id' do
+      it 'does not update' do
+        Account.create! valid_attributes
+        request.headers['SecureToken'] = auth[:message][:auth_token]
+        put :update, params: { id: 1, user_id: user[:id], account: new_attributes }, as: :json
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    context 'when has valid id' do
+      it 'destroys the requested account' do
+        account = Account.create! valid_attributes
+        expect do
+          request.headers['SecureToken'] = auth[:message][:auth_token]
+          delete :destroy, params: { id: account.to_param, user_id: user[:id] }, as: :json
+        end.to change(Account, :count).by(-1)
+      end
+    end
+
+    context 'when has no valid id' do
+      it 'does not return success response' do
+        Account.create! valid_attributes
+        request.headers['SecureToken'] = auth[:message][:auth_token]
+        delete :destroy, params: { id: 1, user_id: user[:id] }, as: :json
+        expect(response).to have_http_status(:not_found)
+      end
     end
   end
 end
