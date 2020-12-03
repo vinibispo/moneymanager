@@ -56,6 +56,7 @@ group :development do
 end
 
 group :test do
+  gem 'generator_spec'
   gem 'simplecov', require: false
 end
 
