@@ -1,16 +1,24 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-require 'spec_helper'
+require 'generator_spec'
+require 'generators/service/service_generator'
+describe ServiceGenerator, type: :generator do
+  let(:name) do
+    FFaker::Color.name
+  end
 
-describe 'ServiceGenerator', type: :generator do
+  destination File.expand_path('../tmp', __dir__)
+
+  before do
+    prepare_destination
+    run_generator %W[#{name}]
+  end
+
   after do
-    `rails d service api`
+    run_generator %W[#{name}], behavior: :revoke
   end
 
   it 'creates a test initializer' do
-    `rails g service api`
-    command = `ls app/services`
-    expect(command).to include('api_service.rb')
+    assert_file "app/services/#{name.underscore}_service.rb"
   end
 end
