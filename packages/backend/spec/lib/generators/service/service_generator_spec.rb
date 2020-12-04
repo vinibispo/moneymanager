@@ -1,17 +1,16 @@
 # frozen_string_literal: true
-# require 'generator_spec'
-# require 'rails_helper'
-# require 'spec_helper'
 
-# describe ServiceGenerator, type: :generator do
-# destination File.expand_path("../../tmp", __FILE__)
+require 'rails_helper'
+require 'spec_helper'
 
-# before do
-# prepare_destination
-# run_generator
-# end
+describe 'ServiceGenerator', type: :generator do
+  after do
+    `rails d service api`
+  end
 
-# it 'creates a test initializer' do
-# assert_file 'app/services/api_service.rb', 'class ApiService'
-# end
-# end
+  it 'creates a test initializer' do
+    `rails g service api`
+    command = `ls app/services`
+    expect(command).to include('api_service.rb')
+  end
+end
