@@ -28,6 +28,7 @@ module Backend
     config.active_job.queue_adapter = :sidekiq
 
     config.middleware.use Rack::Attack
+    Redis.exists_returns_integer = false
     config.generators do |g|
       g.orm :active_record, primary_key_type: :string
     end
