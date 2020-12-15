@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   rescue ActiveRecord::RecordNotFound => e
-    render json: { message: e.message }, status: :not_found
+    raise AppErrorService.new(e.message, :not_found)
   end
 
   # Only allow a list of trusted parameters through.

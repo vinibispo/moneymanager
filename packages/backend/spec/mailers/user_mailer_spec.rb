@@ -21,16 +21,14 @@ RSpec.describe UserMailer, type: :mailer do
   end
 
   describe 'forgot_password' do
-    let(:mail) { described_class.forgot_password }
+    let(:user) do
+      create(:user)
+    end
+    let(:mail) { described_class.forgot_password user.id }
 
     it 'renders the headers' do
-      expect(mail.subject).to eq('Forgot password')
-      expect(mail.to).to eq(['to@example.org'])
+      expect(mail.to).to eq([user.email])
       expect(mail.from).to eq(['from@example.com'])
-    end
-
-    it 'renders the body' do
-      expect(mail.body.encoded).to match('Hi')
     end
   end
 end

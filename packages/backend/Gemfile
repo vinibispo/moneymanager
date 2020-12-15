@@ -59,6 +59,7 @@ end
 
 group :test do
   gem 'generator_spec'
+  gem 'rspec-sidekiq'
   gem 'simplecov', require: false
 end
 

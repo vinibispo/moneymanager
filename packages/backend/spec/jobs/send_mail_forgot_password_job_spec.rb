@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe SignUpJob, type: :job do
+RSpec.describe SendMailForgotPasswordJob, type: :job do
   before do
     ActiveJob::Base.queue_adapter = :test
   end

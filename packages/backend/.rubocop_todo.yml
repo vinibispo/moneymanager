@@ -72,4 +72,5 @@ Style/Documentation:
     - 'db/migrate/20201115235206_enable_uuid_extension_and_pgcrypto.rb'
     - 'db/migrate/20201116102857_create_users.rb'
     - 'db/migrate/20201119105717_create_accounts.rb'
+    - 'db/migrate/*'
     - 'lib/json_web_token.rb'

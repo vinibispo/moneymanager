@@ -18,22 +18,17 @@ class AccountsController < ApplicationController
   # POST /accounts.json
   def create
     @account = Account.new(account_params.merge({ user_id: @current_user.id }))
+    raise AppErrorService.new(@account.errors, :unprocessable_entity) unless @account.save
 
-    if @account.save
-      render :show, status: :created, location: @account
-    else
-      render json: @account.errors, status: :unprocessable_entity
-    end
+    render :show, status: :created, location: @account
   end
 
   # PATCH/PUT /accounts/1
   # PATCH/PUT /accounts/1.json
   def update
-    if @account.update(account_params)
-      render :show, status: :ok, location: @account
-    else
-      render json: @account.errors, status: :unprocessable_entity
-    end
+    raise AppErrorService.new(@account.errors, :unprocessable_entity) unless @account.update(account_params)
+
+    render :show, status: :ok, location: @account
   end
 
   # DELETE /accounts/1
@@ -48,7 +43,7 @@ class AccountsController < ApplicationController
   def set_account
     @account = Account.find_by!(id: params[:id], user_id: @current_user.id)
   rescue ActiveRecord::RecordNotFound => e
-    render json: { message: e.message }, status: :not_found
+    raise AppErrorService.new(e.message, :not_found)
   end
 
   # Only allow a list of trusted parameters through.

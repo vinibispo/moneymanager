@@ -17,9 +17,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.forgot_password.subject
   #
-  def forgot_password
-    @greeting = 'Hi'
+  def forgot_password(user_id)
+    @user = User.find(user_id)
 
-    mail to: 'to@example.org'
+    mail to: @user.email
   end
 end
